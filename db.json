@@ -1,0 +1,8 @@
+{
+  "users": [
+    { "id": 1, "name": "Nome user", "email": "email@gmail.com", "password": "12345" }
+  ],
+  "tasks": [
+    { "id": 1, "title": "Um titulo", "desc": "Qualquer coisa", "date": "20 jan 2021", "idUser": 1 }
+  ]
+}

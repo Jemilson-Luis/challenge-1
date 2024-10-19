@@ -1,10 +1,9 @@
 
-  <app-custom-input [detailInput]="emailDetails" ></app-custom-input>
-  <app-custom-input [detailInput]="passwordDetails"></app-custom-input>
+<app-custom-input [detailInput]="emailDetails" ></app-custom-input>
+<app-custom-input [detailInput]="passwordDetails"></app-custom-input>
 
-  <button
-    [routerLink]="['/home']"
-    routerLinkActive="router-link-active"
-  >
-    Logar
-  </button>
+<button
+  (click)="handleClique()"
+>
+  Logar
+</button>
