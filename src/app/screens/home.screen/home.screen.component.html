@@ -2,14 +2,10 @@
   <app-header-component></app-header-component>
 
   <div class="container-tasks">
-    <app-task-item></app-task-item>
-    <app-task-item></app-task-item>
-    <app-task-item></app-task-item>
-    <app-task-item></app-task-item>
-    <app-task-item></app-task-item>
-    <app-task-item></app-task-item>
-    <app-task-item></app-task-item>
-    <app-task-item></app-task-item>
-    <app-task-item></app-task-item>
+    
+    <!-- Render my tasks -->
+    <span *ngFor="let task of listTasks">
+      <app-task-item [tasks]="task" ></app-task-item>
+    </span>
   </div>
 </main>

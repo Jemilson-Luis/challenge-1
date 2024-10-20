@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Users } from '../controllers/Users.controllers';
+import { Users } from '../models/Users.model';
 import { filter, Observable } from 'rxjs';
 
 
@@ -22,6 +22,4 @@ export class UsersServicesService {
   findOne(){
     return this._httpClient.get<Users[]>(this.url)
   }
-
-
 }

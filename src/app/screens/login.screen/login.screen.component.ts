@@ -3,7 +3,7 @@ import CustomInputTypes from '../../types/customInput.types';
 import { CustomInputComponent } from '../../components/custom-input/custom-input.component';
 import { Router, RouterLink } from '@angular/router';
 import { UsersServicesService } from '../../services/users.services.service';
-import { Users } from '../../controllers/Users.controllers';
+import { Users } from '../../models/Users.model';
 import { CommonModule } from '@angular/common';
 
 @Component({

@@ -1,10 +1,10 @@
-<div class="container-item">
+<div class="container-item" [ngStyle]="{'background-color': taskColor}">
   <span>
-    <h2>Titule</h2>
+    <h2>{{ tasks.title }}</h2>
     <button class="btn-menu" (click)="changeShowMenu()" ><img src="menu.png" > </button>
   </span>
-  <p class="data">10 jan 2021</p>
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae veritatis nulla dolorem ex numquam rerum explicabo vel doloribus nobis animi, similique vero ut laudantium ea nam quo. Voluptatum, aut animi.</p>
+  <p class="data">{{ tasks.date }}</p>
+  <p>{{ tasks.desc }}</p>
 
   <div class="container-drop-menu" *ngIf="showMenu">
     <a> <img src="del (1).png" alt=""> Editar </a>
