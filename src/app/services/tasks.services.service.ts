@@ -20,7 +20,11 @@ export class TasksServicesService {
     return this._httpClient.post<Tasks>(baseUrl+'tasks', { title, desc, date, idUser })
   }
 
-  delete(id:number){
+  update(params:TaskModelTypes){
+    return this._httpClient.put<Tasks>(baseUrl+`tasks/${params.id}`, params)
+  }
+
+  delete(id:string){
     return this._httpClient.delete<Tasks[]>(baseUrl+'tasks/'+id)
   }
 

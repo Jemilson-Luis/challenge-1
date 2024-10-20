@@ -17,17 +17,22 @@ export class TaskItemComponent {
   @Input() tasks:TaskModelTypes = {
     date: '',
     desc: '',
-    id: 0,
+    id: '',
     title: '',
-    idUser: this.idUser != null ? parseInt(this.idUser) : 0
+    idUser: this.idUser != null ? this.idUser : ''
   }
 
   @Output() deleteTask:EventEmitter<string> = new EventEmitter()
+  @Output() updateTask:EventEmitter<string> = new EventEmitter()
 
   taskColor = this.getColor()
 
-  handleDelet(id:number){
+  handleDelet(id:string){
     this.deleteTask.emit()
+  }
+
+  handleEdit(id:string){
+    this.updateTask.emit()
   }
 
   getColor(): string {

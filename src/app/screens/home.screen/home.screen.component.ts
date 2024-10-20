@@ -44,13 +44,12 @@ export class HomeScreenComponent implements OnInit {
   }
 
   formData:TaskModelTypes = {
-    id: 0,
+    id: '',
     title: this.titleInput.name,
     desc: '',
     date: this.actDate,
-    idUser: this.idUser != null ? parseInt(this.idUser) : 0
+    idUser: this.idUser != null ? this.idUser : ''
   }
-
 
 
   showRegister(){
@@ -61,12 +60,25 @@ export class HomeScreenComponent implements OnInit {
     this.formData.title = this.titleInput.name
 
     this._TaskServices.post(this.formData).subscribe( data => {
-
       if(data.id != null){
         this.sucssessMsg = 'Task created!'
         window.location.reload()
       }
     })
+  }
+
+  updateTask(params:TaskModelTypes){
+    this.formData = params
+    this.titleInput.name = params.title
+    this.showRegister()
+
+
+    // this._TaskServices.update(this.formData).subscribe( data => {
+    //   if(data.id != null){
+    //     this.sucssessMsg = 'Task created!'
+    //     window.location.reload()
+    //   }
+    // })
   }
 
   ngOnInit(): void {
@@ -77,7 +89,7 @@ export class HomeScreenComponent implements OnInit {
     }
   }
 
-  deleteTask(id:number){
+  deleteTask(id:string){
     this._TaskServices.delete(id).subscribe( data =>{
       window.location.reload()
       this.taskNotFound = 'Task deleted!'

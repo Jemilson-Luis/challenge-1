@@ -24,7 +24,10 @@
   <div class="container-tasks">
     <!-- Render my tasks -->
     <span *ngFor="let task of listTasks">
-      <app-task-item [tasks]="task" (deleteTask)="deleteTask(task.id)" ></app-task-item>
+      <app-task-item [tasks]="task"
+        (updateTask)="updateTask(task)"
+        (deleteTask)="deleteTask(task.id)"
+      ></app-task-item>
     </span>
 
     <div class="container-modal" *ngIf="showCard">
