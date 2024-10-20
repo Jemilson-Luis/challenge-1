@@ -13,4 +13,8 @@ export class TasksServicesService {
   findAll(){
     return this._httpClient.get<Tasks[]>(baseUrl+'tasks')
   }
+
+  filter(params:string){
+    return this._httpClient.get<Tasks[]>(baseUrl+'tasks?title='+params)
+  }
 }

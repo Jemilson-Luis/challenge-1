@@ -1,8 +1,13 @@
 <main>
   <app-header-component></app-header-component>
 
+  <div class="container-search">
+    <div class="search">
+      <app-custom-input [detailInput]="searchInput" ></app-custom-input>
+    </div>
+    <button class="btn-search" (click)="handleSearch()"> <img src="search.png" alt=""> </button>
+  </div>
   <div class="container-tasks">
-    
     <!-- Render my tasks -->
     <span *ngFor="let task of listTasks">
       <app-task-item [tasks]="task" ></app-task-item>
