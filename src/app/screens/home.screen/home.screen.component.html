@@ -7,10 +7,52 @@
     </div>
     <button class="btn-search" (click)="handleSearch()"> <img src="search.png" alt=""> </button>
   </div>
+
+  <div>
+    <button (click)="findAll()" class="btn-filter">All tasks</button>
+    <button (click)="showRegister()" class="btn-newTask">New task</button>
+  </div>
+
+  <div class="container-notFound" *ngIf=" taskNotFound ">
+    <h2 class="taskNotFound">{{ taskNotFound }}</h2>
+  </div>
+
+  <div class=" container-taskCreated" *ngIf=" sucssessMsg ">
+    <h2 class="taskCreated">{{ sucssessMsg }}</h2>
+  </div>
+
   <div class="container-tasks">
     <!-- Render my tasks -->
     <span *ngFor="let task of listTasks">
-      <app-task-item [tasks]="task" ></app-task-item>
+      <app-task-item [tasks]="task" (deleteTask)="deleteTask(task.id)" ></app-task-item>
     </span>
+
+    <div class="container-modal" *ngIf="showCard">
+
+      <h2> Add new task </h2>
+
+      <div class="containerInput">
+        <label>Title</label>
+        <app-custom-input [detailInput]="titleInput"></app-custom-input>
+      </div>
+
+      <div class="containerDesc">
+        <label>Description</label>
+        <textarea
+          placeholder="Write the Description here"
+          name="desc"
+          [(ngModel)]="formData.desc"
+        >
+        </textarea>
+      </div>
+
+      <button class="btn-register" (click)="post()"> Add new task </button>
+
+    </div>
+  </div>
+
+
+  <div>
+
   </div>
 </main>

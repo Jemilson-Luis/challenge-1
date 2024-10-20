@@ -7,7 +7,7 @@
   <p>{{ tasks.desc }}</p>
 
   <div class="container-drop-menu" *ngIf="showMenu">
-    <a> <img src="del (1).png" alt=""> Editar </a>
-    <a> <img src="edit.png">  Exluir </a>
+    <a (click)="handleDelet(tasks.id)" > <img src="del (1).png" alt=""> Editar </a>
+    <a (click)="handleDelet(tasks.id)"> <img src="edit.png">  Exluir </a>
   </div>
 </div>

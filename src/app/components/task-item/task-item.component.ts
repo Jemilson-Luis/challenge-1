@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, input } from '@angular/core';
+import { Component, EventEmitter, Input, input, Output } from '@angular/core';
 import { TaskModelTypes } from '../../types/tasksModel.types';
 
 @Component({
@@ -12,10 +12,23 @@ import { TaskModelTypes } from '../../types/tasksModel.types';
 export class TaskItemComponent {
   colors = ['#ffa6a699', '#2ba0ff99', '#dc2bff99', '#dc2bff99', '#dc2bff99','#2bff7c99']
   showMenu:boolean = false
+  idUser  =  localStorage.getItem('id')
 
-  @Input() tasks:TaskModelTypes = { date: '', desc: '', id: '', idUser: '', title: '' }
+  @Input() tasks:TaskModelTypes = {
+    date: '',
+    desc: '',
+    id: 0,
+    title: '',
+    idUser: this.idUser != null ? parseInt(this.idUser) : 0
+  }
+
+  @Output() deleteTask:EventEmitter<string> = new EventEmitter()
 
   taskColor = this.getColor()
+
+  handleDelet(id:number){
+    this.deleteTask.emit()
+  }
 
   getColor(): string {
     const corlor = Math.floor(Math.random() * this.colors.length);

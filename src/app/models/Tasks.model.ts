@@ -1,11 +1,11 @@
 import { TaskModelTypes } from "../types/tasksModel.types";
 
 export class Tasks {
-  id:string
+  id:number
   title:string
   desc:string
   date:string
-  idUser:string
+  idUser:number
 
   constructor( { id, date, desc, idUser, title  }:TaskModelTypes ) {
     this.id = id
