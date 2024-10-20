@@ -3,7 +3,6 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 import { CustomInputComponent } from './components/custom-input/custom-input.component';
 import CustomInputTypes from './types/customInput.types';
 
-
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -14,6 +13,5 @@ import CustomInputTypes from './types/customInput.types';
 
 export class AppComponent {
   title = 'Wellcome';
-
 
 }

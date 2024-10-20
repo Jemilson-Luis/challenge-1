@@ -1,7 +1,13 @@
-<input
-  placeholder="{{detailInput.placeholder}}"
-  type="{{detailInput.type}}"
-  [(ngModel)]="detailInput.name"
-  name="{{detailInput.name}}"
-  class="customInput"
-/>
+<div>
+  <input
+    placeholder="{{detailInput.placeholder}}"
+    type="{{detailInput.type}}"
+    [(ngModel)]="detailInput.name"
+    name="{{detailInput.name}}"
+    [ngClass]=" detailInput.error && inputError "
+
+    class="customInput"
+
+  />
+  <p *ngIf="detailInput.error" class="error-message" > {{ detailInput.error }} </p>
+</div>
