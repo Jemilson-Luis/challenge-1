@@ -1,7 +1,16 @@
-<div>
-  <app-custom-input [detailInput]="emailDetails" ></app-custom-input>
-  <app-custom-input [detailInput]="passwordDetails"></app-custom-input>
+<div class="container">
 
+  <h1> Login </h1>
+
+  <div class="containerInput">
+    <label>Email</label>
+    <app-custom-input [detailInput]="emailDetails" ></app-custom-input>
+  </div>
+  
+  <div class="containerInput">
+    <label>Password</label>
+    <app-custom-input [detailInput]="passwordDetails"></app-custom-input>
+  </div>
 
   <button (click)="handleClique()">
     Logar

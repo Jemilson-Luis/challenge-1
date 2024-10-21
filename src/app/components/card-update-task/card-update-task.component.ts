@@ -11,19 +11,17 @@ import { TaskModelTypes } from '../../types/tasksModel.types';
   templateUrl: './card-update-task.component.html',
   styleUrl: './card-update-task.component.scss'
 })
-export class CardUpdateTaskComponent implements OnInit {
+export class CardUpdateTaskComponent {
   @Output() sendData:EventEmitter<any> = new EventEmitter
   @Input() dataForm:TaskModelTypes = { 
     id: '', 
     title: '' ,
     desc: '', 
     date: '', 
-    idUser: '', 
+    userEmail: '', 
   }
 
-  ngOnInit(): void {
-    
-  }
+
   descInput = {
     placeholder: this.dataForm.title,
     type: 'text',

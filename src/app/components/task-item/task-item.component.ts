@@ -14,7 +14,7 @@ import { CardUpdateTaskComponent } from '../card-update-task/card-update-task.co
 export class TaskItemComponent {
   colors = ['#ffa6a699', '#2ba0ff99', '#dc2bff99', '#dc2bff99', '#dc2bff99','#2bff7c99']
   showMenu:boolean = false
-  idUser  =  localStorage.getItem('id')
+  userEmail  =  localStorage.getItem('id')
   showCard:boolean = false
 
   @Input() tasks:TaskModelTypes = {
@@ -22,7 +22,7 @@ export class TaskItemComponent {
     desc: '',
     id: '',
     title: '',
-    idUser: this.idUser != null ? this.idUser : ''
+    userEmail: this.userEmail != null ? this.userEmail : ''
   }
 
   @Output() deleteTask:EventEmitter<string> = new EventEmitter()

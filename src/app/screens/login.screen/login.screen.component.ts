@@ -32,23 +32,30 @@ export class LoginScreenComponent{
   }
 
   handleClique(){
-    // Aweit a email in param
-    this._usersServices.authenticate(this.emailDetails.name).subscribe(data =>{
-      if(data.length === 0){
-        this.emailDetails.error = 'Invalid email!'
-
-      }else{
-        if(data[0].password === this.passwordDetails.name){
-          this.passwordDetails.error = ''
-          this.emailDetails.error = ''
-          localStorage.setItem('email', `${this.emailDetails.name}`)
-          this.router.navigate(['/home'])
-
+    if(this.emailDetails.name === '' || this.emailDetails.name === '' ){
+      this.emailDetails.error = 'Email is empty!'
+      this.emailDetails.error = 'Password is empy!'
+      
+    }else{
+      // Aweit a email in param
+      this._usersServices.authenticate(this.emailDetails.name).subscribe(data =>{
+        if(data.length === 0){
+          this.emailDetails.error = 'Invalid email!'
+  
         }else{
-          this.emailDetails.error = ''
-          this.passwordDetails.error = 'Invalid password!'
+          if(data[0].password === this.passwordDetails.name){
+            this.passwordDetails.error = ''
+            this.emailDetails.error = ''
+            localStorage.setItem('email', `${this.emailDetails.name}`)
+            this.router.navigate(['/home'])
+  
+          }else{
+            this.emailDetails.error = ''
+            this.passwordDetails.error = 'Invalid password!'
+          }
         }
-      }
-    })
+      })
+    }
   }
 }
+

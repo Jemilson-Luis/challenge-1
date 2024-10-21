@@ -5,14 +5,14 @@ export class Tasks {
   title:string
   desc:string
   date:string
-  idUser:string
+  userEmail:string
 
-  constructor( { id, date, desc, idUser, title  }:TaskModelTypes ) {
+  constructor( { id, date, desc, userEmail, title  }:TaskModelTypes ) {
     this.id = id
     this.date = date
     this.title = title
     this.desc = desc
-    this.idUser = idUser
+    this.userEmail = userEmail
   }
 
 }

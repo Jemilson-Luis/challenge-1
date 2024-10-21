@@ -3,5 +3,5 @@ export type TaskModelTypes = {
   title:string
   desc:string
   date:string
-  idUser:string
+  userEmail:string
 }

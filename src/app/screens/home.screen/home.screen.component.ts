@@ -49,7 +49,7 @@ export class HomeScreenComponent implements OnInit {
     title:'',
     desc:'',
     date: new Date().toLocaleDateString(),
-    idUser: this.idActiveUser != null ? this.idActiveUser : '',
+    userEmail: this.idActiveUser != null ? this.idActiveUser : '',
   }
 
 
@@ -107,6 +107,11 @@ export class HomeScreenComponent implements OnInit {
     this._TaskServices.findAll().subscribe( data => {
       this.listTasks = data
     } )
+  }
+
+  loggOut(){
+    localStorage.clear()
+    this.router.navigate([''])
   }
 
   handleSearch(){

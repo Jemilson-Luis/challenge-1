@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { CustomInputComponent } from '../custom-input/custom-input.component';
 import CustomInputTypes from '../../types/customInput.types';
-import { TaskModelTypes } from '../../types/tasksModel.types';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
