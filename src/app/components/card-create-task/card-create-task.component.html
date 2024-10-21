@@ -1,1 +1,19 @@
-<p>card-create-task works!</p>
+<div class="container-modal">
+  <h2> Add new task </h2>
+  <div class="containerInput">
+    <label>Title</label>
+    <app-custom-input [detailInput]="titleInput"></app-custom-input>
+  </div>
+
+  <div class="containerDesc">
+    <label>Description</label>
+    <textarea
+      placeholder="{{ descInput.placeholder }}"
+      name="{{ descInput.name }}"
+      [(ngModel)]="descInput.name"
+    >
+    </textarea>
+  </div>
+  
+  <button class="btn-register" (click)="handleClique()" > Add new task </button>
+</div>

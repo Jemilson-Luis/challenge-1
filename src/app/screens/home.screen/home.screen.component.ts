@@ -9,25 +9,33 @@ import { CustomInputComponent } from '../../components/custom-input/custom-input
 import CustomInputTypes from '../../types/customInput.types';
 import { Router } from '@angular/router';
 import { FormsModule, NgModel } from '@angular/forms';
+import { CardCreateTaskComponent } from '../../components/card-create-task/card-create-task.component';
+import { Tasks } from '../../models/Tasks.model';
+import { CardUpdateTaskComponent } from '../../components/card-update-task/card-update-task.component';
 
 @Component({
   selector: 'app-home.screen',
   standalone: true,
-  imports: [HeaderComponentComponent, TaskItemComponent, CommonModule, CustomInputComponent, FormsModule, CustomInputComponent],
+  imports: [HeaderComponentComponent, 
+    CardCreateTaskComponent, 
+    CardUpdateTaskComponent, 
+    TaskItemComponent, 
+    CommonModule, 
+    CustomInputComponent, 
+    FormsModule, 
+    CustomInputComponent
+  ],
   templateUrl: './home.screen.component.html',
   styleUrl: './home.screen.component.scss'
 })
 export class HomeScreenComponent implements OnInit {
   constructor(private _TaskServices:TasksServicesService, private router:Router){}
+  idActiveUser = localStorage.getItem('email')
   listTasks: TaskModelTypes[] = []
-  actDate:string = new Date().toLocaleDateString()
   showCard:boolean = false
-  idUser = localStorage.getItem('id')
+  showCardUpdate = false
   sucssessMsg:string = ''
   taskNotFound:string = ''
-  title:string = ''
-  desc:string = ''
-
 
   searchInput:CustomInputTypes = {
     placeholder: 'Search for title task',
@@ -36,19 +44,12 @@ export class HomeScreenComponent implements OnInit {
     error: ''
   }
 
-  titleInput:CustomInputTypes = {
-    placeholder: 'Write the title here',
-    type: 'text',
-    name: '',
-    error: ''
-  }
-
-  formData:TaskModelTypes = {
+  formData: Tasks = {
     id: '',
-    title: this.titleInput.name,
-    desc: '',
-    date: this.actDate,
-    idUser: this.idUser != null ? this.idUser : ''
+    title:'',
+    desc:'',
+    date: new Date().toLocaleDateString(),
+    idUser: this.idActiveUser != null ? this.idActiveUser : '',
   }
 
 
@@ -56,8 +57,9 @@ export class HomeScreenComponent implements OnInit {
     this.showCard = !this.showCard
   }
 
-  post(){
-    this.formData.title = this.titleInput.name
+  postTask(event:{title:string, desc:string}){
+    this.formData.title = event.title
+    this.formData.desc = event.desc
 
     this._TaskServices.post(this.formData).subscribe( data => {
       if(data.id != null){
@@ -67,18 +69,8 @@ export class HomeScreenComponent implements OnInit {
     })
   }
 
-  updateTask(params:TaskModelTypes){
-    this.formData = params
-    this.titleInput.name = params.title
-    this.showRegister()
-
-
-    // this._TaskServices.update(this.formData).subscribe( data => {
-    //   if(data.id != null){
-    //     this.sucssessMsg = 'Task created!'
-    //     window.location.reload()
-    //   }
-    // })
+  changeStateOfCardUpdate(){
+    this.showCardUpdate = !this.showCardUpdate
   }
 
   ngOnInit(): void {
@@ -87,6 +79,20 @@ export class HomeScreenComponent implements OnInit {
         this.listTasks = data
       } )
     }
+  }
+
+  sendDataTask(params:TaskModelTypes){
+    this.formData = params
+    this.showCardUpdate = !this.showCardUpdate
+  }
+
+  updateTask(params:TaskModelTypes){
+    this._TaskServices.update(this.formData).subscribe( data => {
+      if(data.id != null){
+        this.sucssessMsg = 'Update task!'
+        window.location.reload()
+      }
+    })
   }
 
   deleteTask(id:string){

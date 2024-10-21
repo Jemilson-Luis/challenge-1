@@ -2,7 +2,7 @@
   background-color: #FFF;
   top: 16px;
   left: 48px ;
-  box-shadow: 2px 0px 24px #464646;
+  box-shadow: 2px 0px 24px #777777;
   padding: 8px;
   position: absolute;
   width: 350px;
@@ -74,4 +74,21 @@ label{
 
 .containerDesc{
   margin-top: 8px;
+}
+
+.customInput{
+  border: 1px solid #DFDFDF;
+  border-radius: 4px;
+
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 12pt;
+  height: 40px;
+
+  padding-left: 8px;
+  outline: none;
+
+  width: 100%;
+
+  margin-top: 8px;
+
 }

@@ -3,22 +3,33 @@
 }
 
 .container-item{
-  // background: #FFF;
+  background: #FFF;
   padding: 16px 24px;
-  border-radius: 8px;
+
+  border-bottom: 2px solid #DDD;
   position: relative;
+
   min-width: 320px;
-  display: grid;
-  grid-column: 1/4;
 }
 
-h2{
-  margin-bottom: -5px;
+.container-title{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: -20px;
+}
+
+.container-title h2{
+  margin-right: 16px;
+  margin-bottom: -8px;
+}
+
+.descTask{
+  width: 90%;
 }
 
 .data{
   color: #666;
-  font-size: 12pt;
+  font-size: 11pt;
 }
 
 .container-item span{
@@ -34,13 +45,11 @@ h2{
   flex-direction: column;
 }
 
-
-
 .container-drop-menu {
   background-color: #FFF;
   box-shadow: 1px 1px 10px #bbb;
   font-size: 12pt;
-  padding: 14px 16px;
+  padding: 8px;
   border-bottom: 1px solid #EFEFEF;
   color: #545555 ;
   margin: 2px;
@@ -59,9 +68,9 @@ h2{
 }
 
 .container-drop-menu a {
-  margin-top: 4px;
   padding: 8px 8px;
-  border-radius: 4px;
+
+  border-bottom: 1px solid #DDD;
 
   transition: all .2s;
   cursor: pointer;
@@ -82,7 +91,7 @@ h2{
 }
 
 .btn-menu{
-  background-color: #FFFFFF00;
+  background-color: #EFEFEF;
   border-radius: 8px;
   border: none;
 

@@ -1,17 +1,18 @@
 <main>
-  <app-header-component></app-header-component>
-
-  <div class="container-search">
-    <div class="search">
-      <app-custom-input [detailInput]="searchInput" ></app-custom-input>
+  <div class="header">
+    <div>
+      <button (click)="showRegister()" class="btn-newTask">New task</button>
+      <button (click)="findAll()" class="btn-filter">All tasks</button>
     </div>
-    <button class="btn-search" (click)="handleSearch()"> <img src="search.png" alt=""> </button>
+
+    <div class="container-search">
+      <div class="search">
+        <app-custom-input [detailInput]="searchInput" ></app-custom-input>
+      </div>
+      <button class="btn-search" (click)="handleSearch()"> <img src="search.png" alt=""> </button>
+    </div>
   </div>
 
-  <div>
-    <button (click)="findAll()" class="btn-filter">All tasks</button>
-    <button (click)="showRegister()" class="btn-newTask">New task</button>
-  </div>
 
   <div class="container-notFound" *ngIf=" taskNotFound ">
     <h2 class="taskNotFound">{{ taskNotFound }}</h2>
@@ -22,40 +23,24 @@
   </div>
 
   <div class="container-tasks">
+
     <!-- Render my tasks -->
     <span *ngFor="let task of listTasks">
       <app-task-item [tasks]="task"
-        (updateTask)="updateTask(task)"
         (deleteTask)="deleteTask(task.id)"
+        (updateTask)="sendDataTask($event)"
       ></app-task-item>
     </span>
+    
+    <app-card-create-task 
+      *ngIf="showCard" 
+      (sendData)="postTask($event)" 
+    ></app-card-create-task>
 
-    <div class="container-modal" *ngIf="showCard">
-
-      <h2> Add new task </h2>
-
-      <div class="containerInput">
-        <label>Title</label>
-        <app-custom-input [detailInput]="titleInput"></app-custom-input>
-      </div>
-
-      <div class="containerDesc">
-        <label>Description</label>
-        <textarea
-          placeholder="Write the Description here"
-          name="desc"
-          [(ngModel)]="formData.desc"
-        >
-        </textarea>
-      </div>
-
-      <button class="btn-register" (click)="post()"> Add new task </button>
-
-    </div>
-  </div>
-
-
-  <div>
-
+    <app-card-update-task 
+      [dataForm]="formData"
+      *ngIf="showCardUpdate"
+      (sendData)="updateTask($event)"
+    ></app-card-update-task>
   </div>
 </main>

@@ -1,0 +1,26 @@
+<div class="container-modal" >
+  <h2> Update task </h2>
+  <div class="containerInput">
+    <label>Title</label>
+    <input
+      placeholder="Write title here"
+      type="text"
+      [(ngModel)]="dataForm.title"
+      name="{{titleInput.name}}"
+
+      class="customInput"
+    />
+  </div>
+
+  <div class="containerDesc">
+    <label>Description</label>
+    <textarea
+      placeholder="{{ descInput.placeholder }}"
+      name="{{ descInput.name }}"
+      [(ngModel)]="dataForm.desc"
+    >
+    </textarea>
+  </div>
+  
+  <button class="btn-register" (click)="handleClique()" > Update task </button>
+</div>

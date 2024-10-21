@@ -1,13 +1,17 @@
-<div class="container-item" [ngStyle]="{'background-color': taskColor}">
+<div class="container-item">
   <span>
-    <h2>{{ tasks.title }}</h2>
+    <div class="container-title">
+      <h2>{{ tasks.title }}</h2>
+      <p class="data">{{ tasks.date }}</p>
+    </div>
+
     <button class="btn-menu" (click)="changeShowMenu()" ><img src="menu.png" > </button>
   </span>
-  <p class="data">{{ tasks.date }}</p>
-  <p>{{ tasks.desc }}</p>
+
+  <p class="descTask">{{ tasks.desc }}</p>
 
   <div class="container-drop-menu" *ngIf="showMenu">
-    <a (click)="handleEdit(tasks.id)"> <img src="edit.png"> Editar </a>
+    <a (click)="handleEdit(tasks)"> <img src="edit.png"> Editar </a>
     <a (click)="handleDelet(tasks.id)" > <img src="del (1).png" alt=""> Exluir </a>
-  </div>
+  </div>  
 </div>
