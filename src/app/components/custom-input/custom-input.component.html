@@ -1,0 +1,12 @@
+<input
+  class="font-sans text-gray-800 pl-4 pr-4 border h-12 w-full rounded-md"
+  placeholder="{{detailInput.placeholder}}"
+  type="{{detailInput.type}}"
+  #value
+  (change)="detailInput.value = value.value"
+  [(ngModel)]="detailInput.value"
+/>
+
+<div *ngIf="detailInput.error != '' ">
+  <p class="font-sans text-sm text-red-700">{{ detailInput.error }}</p>
+</div>

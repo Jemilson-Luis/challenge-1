@@ -1,0 +1,21 @@
+<div class="bg-white shadow-sm flex items-center p-4 rounded-md mt-2 justify-between">
+  <div class="">
+    <p class="text-2xl font-semibold text-gray-800 mb-2">{{ tasks.title }}</p>
+    <p class="mr-12 font-sans text-gray-700">{{ tasks.desc }}</p>
+  </div>
+
+  <div class="flex items-center ">
+    <button
+      (click)="handleDelet(tasks.id)"
+      class="w-10 h-10 rounded-md bg-red-100 mr-4 flex items-center justify-center hover:bg-red-200  transition-all "
+    > <img src="del (1).png" class="size-6" />
+    </button>
+
+    <button
+      (click)="handleEdit(tasks)"
+      class="w-10 h-10 rounded-md bg-yellow-100 flex items-center justify-center hover:bg-yellow-200 transition-all "
+    > <img src="edit.png"  class="size-6" />
+    </button>
+
+  </div>
+</div>

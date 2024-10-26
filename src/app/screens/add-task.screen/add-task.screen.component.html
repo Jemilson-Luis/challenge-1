@@ -1,0 +1,38 @@
+<main class="flex justify-center items-center">
+  <div class="w-[50vw] mt-10">
+
+    <button
+      [routerLink]="['/home']"
+      class="flex items-center hover:bg-gray-200 py-2 px-2 rounded-md mb-10"
+    >
+      <img src="back.png" class="size-6 mr-2" />
+      <p class="text-pretty font-sans text-gray-600">Back</p>
+    </button>
+
+    <p class="text-2xl text-gray-700 font-semibold mb-4">{{ titlePage }}</p>
+
+    <app-custom-input
+      [detailInput]="titleField"
+    ></app-custom-input>
+
+    <textarea
+      class="font-sans text-gray-800 pl-4 pt-2 pr-4 border h-20 mt-4 w-full rounded-md"
+      placeholder="{{ descField.placeholder }}"
+      #value
+      (change)="descField.value = value.value"
+      [(ngModel)]="descField.value"
+    >
+
+    </textarea>
+
+    <div class="flex w-full justify-end">
+      <button
+        (click)=" update ? updateTask() : handleTask()"
+        class="h-12 px-4 bg-blue-600 rounded-md text-white font-semibold mt-4 transition-all hover:bg-blue-700"
+      >{{ titleButton }}</button>
+    </div>
+  </div>
+</main>
+
+
+

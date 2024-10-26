@@ -1,0 +1,40 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Nome user",
+      "email": "email@gmail.com",
+      "password": "12345"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "f9ce",
+      "title": "Água",
+      "desc": "Nisi tempor commodo do consectetur officia tempor. Ut cupidatat officia exercitation cillum occaecat. Consectetur ex nostrud eiusmod mollit nostrud officia mollit.",
+      "date": "25/10/2024",
+      "userEmail": "email@gmail.com"
+    },
+    {
+      "userEmail": "email@gmail.com",
+      "title": "Bug",
+      "desc": "Nisi tempor commodo do consectetur officia tempor. Ut cupidatat officia exercitation cillum occaecat. Consectetur ex nostrud eiusmod mollit nostrud officia mollit.",
+      "date": "25/10/2024",
+      "id": "0339"
+    },
+    {
+      "id": "9a5e",
+      "title": "Codar",
+      "desc": "Nisi tempor commodo do consectetur officia tempor. Ut cupidatat officia exercitation cillum occaecat. Consectetur ex nostrud eiusmod mollit nostrud officia mollit.",
+      "date": "25/10/2024",
+      "userEmail": "email@gmail.com"
+    },
+    {
+      "id": "934d",
+      "title": "Ler",
+      "desc": "Nisi tempor commodo do consectetur officia tempor. Ut cupidatat officia exercitation cillum occaecat. Consectetur ex nostrud eiusmod mollit nostrud officia mollit.",
+      "date": "25/10/2024",
+      "userEmail": "email@gmail.com"
+    }
+  ]
+}

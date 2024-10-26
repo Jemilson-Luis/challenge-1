@@ -1,0 +1,36 @@
+<app-header-component></app-header-component>
+<main class="flex justify-center items-center">
+  <div class="w-[50vw] mt-10">
+    <div class="mb-4 flex">
+      <div class="flex-1">
+        <button
+          [routerLink]="['/newTask']"
+          class=" flex items-center justify-center bg-green-100 px-4 h-10 mr-4 mb-2 rounded-md text-gray-800 font-sans transition-all hover:bg-green-200"
+        >
+          <p class="mr-2 font-sans font-semibold text-green-800">New task</p>
+          <img class="size-6" src="plus.png"/>
+        </button>
+      </div>
+
+      <div class="flex items-center flex-1">
+        <input
+          placeholder="Search fot title task"
+          #value
+          (keyup)="searchTask(value.value)"
+          class="font-sans text-gray-800 pl-4 pr-4 border h-12 w-full rounded-md"
+        />
+
+        <button class="w-12 h-12 ml-2 bg-blue-100 rounded-md flex items-center justify-center">
+          <img src="search.png" alt="" class="size-6">
+        </button>
+      </div>
+    </div>
+
+    <app-task-item
+      *ngFor="let task of listTasks"
+      [tasks]="task"
+      (deleteTask)="deleteTask($event)"
+      (updateTask)="updateTask($event)"
+    ></app-task-item>
+  </div>
+</main>
