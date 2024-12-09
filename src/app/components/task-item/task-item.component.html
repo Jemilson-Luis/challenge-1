@@ -1,21 +1,124 @@
-<div class="bg-white shadow-sm flex items-center p-4 rounded-md mt-2 justify-between">
-  <div class="">
-    <p class="text-2xl font-semibold text-gray-800 mb-2">{{ tasks.title }}</p>
-    <p class="mr-12 font-sans text-gray-700">{{ tasks.desc }}</p>
-  </div>
+<div 
+  [hidden]=" tasks.checked ? showHiddesTask: '' "
+  *ngIf="destroiComponent()" 
+  class="container-card transition-all border-l-[5px]" 
+  [ngClass]="[ detailTask() ? 'show':'hidde', 
+    tasks.priority == '0' ? 'border-[#991b1b]': 
+    tasks.priority == '1' ? 'border-[#bb7627]': 
+    tasks.priority == '2'? 'border-[#3471cee5]': 
+    'border-[#202020]'
+  ]"
+>
 
-  <div class="flex items-center ">
-    <button
-      (click)="handleDelet(tasks.id)"
-      class="w-10 h-10 rounded-md bg-red-100 mr-4 flex items-center justify-center hover:bg-red-200  transition-all "
-    > <img src="del (1).png" class="size-6" />
-    </button>
+  <!-- Task Header -->
+  <span class="flex justify-between w-full h-7">
+    <span class="flex items-center gap-3 pl-2">
+      <button class="desc-task" (click)="extendTask()">
+        <img src="menu.ico" />
+      </button>
+      
+      <input 
+        name="checked"
+        type="checkbox" 
+        class="chack-box-item" 
+        (change)="updateCheckStateTask(tasks.checked, tasks.id)" 
+        [checked]="tasks.checked" 
+        [(ngModel)]="tasks.checked!"
+      />
 
-    <button
-      (click)="handleEdit(tasks)"
-      class="w-10 h-10 rounded-md bg-yellow-100 flex items-center justify-center hover:bg-yellow-200 transition-all "
-    > <img src="edit.png"  class="size-6" />
-    </button>
+      <p class="title text-sm" [ngClass]="tasks.checked ? 'checkedTitle':'notCheckedTitle'">
+        <input 
+          name="title"
+          class="bg-transparent py-1 px-1 outline-[#364638]" 
+          (change)="updateTitleTask(tasks.title, tasks.id)"
+          [ngClass]="tasks.checked ? 'checkedTitle':'notCheckedTitle'"
+          [(ngModel)]="tasks.title" 
+        />
+      </p>
+    </span>
 
+    <span class="flex gap-3 items-center">
+      <p class="text-sm text-zinc-500"> {{ dataTemplate() === undefined ? '':dataTemplate() }} </p>
+      <button (click)="extendTask()" class="w-8 h-full rounded-md flex justify-center items-center "
+        [ngClass]=" animeChevron() ? 'rotateChevron':'normalChevron' ">
+        <img src="chevron.png" alt="" class="w-[12px] h-[12px]">
+      </button>
+    </span>
+  </span>
+
+  <!-- Task body -->
+  <div class=" border-t border-[#191919] pt-2 mt-4 h-[218px] flex gap-4 justify-center relative px-2">
+    <!-- Description area -->
+     
+    <span class="flex-1">
+      <p class="label">Notas</p>
+      <textarea 
+        name="desc"
+        class="w-full px-2 py-1 h-full bg-[#202020] outline-none border border-[#101010] resize-none rounded-[4px] text-gray-100"
+        (change)="updateDescTask(tasks.desc, tasks.id)" 
+        [value]="tasks.desc"
+        [(ngModel)]="tasks.desc"
+      ></textarea>
+    </span>
+
+    <!-- Details -->
+    <span class="flex-1 flex flex-col h-[236px]">
+      <div>
+        <p class="label">Prazo</p>
+        <div class="flex-1 w-full">
+          <div class="flex justify-between bg-[#343434] border border-[#101010] rounded-[4px] text-zinc-100 text-sm">
+            <button 
+              class=" px-4 transition-all active:bg-zinc-950"
+              (click)="updateDateTask('Hoje', tasks.id)" 
+            >
+              Hoje
+            </button>
+            <button 
+              class=" px-4 transition-all active:bg-zinc-950 py-[6px] border-r border-l border-[#101010]"
+              (click)="updateDateTask('Amanhã', tasks.id)"
+            >
+              Amanhã
+            </button>
+            <input 
+              name="dat3"
+              type="date" 
+              class="bg-[#343434] pl-3 pr-2 flex-1 w-32" 
+              [value]="tasks.date" 
+              (change)="updateDateTask(tasks.date, tasks.id)"
+              [(ngModel)]="tasks.date"
+            />            
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-4">
+        <p class="label">Prioridade</p>
+        <div class="flex-1 w-full">
+          <div
+            class="flex justify-between py-[8px] px-2 bg-[#343434] border border-[#101010] rounded-[4px] text-zinc-100 text-sm">
+            <select 
+              name="priority"
+              class="w-full bg-transparent h-full outline-none border-none"
+              (change)="updatePriorityTask(tasks.priority, tasks.id)"
+              [value]="tasks.priority"
+              [(ngModel)]="tasks.priority"
+            >
+              <option value="3" class="bg-[#181818] text-gray-300"> Nenhuma </option>
+              <option value="2" class="bg-[#181818] text-gray-300"> Baixa </option>
+              <option value="1" class="bg-[#181818] text-gray-300"> Média </option>
+              <option value="0" class="bg-[#181818] text-gray-300"> Alta </option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Drop task -->
+      <button 
+        (click)="dropTask(tasks.id)"
+        class="px-5 py-[6px] absolute right-0 -bottom-7 bg-red-800 text-sm rounded-[4px] text-gray-100 self-end blur-[0.4px]  active:bg-red-900"
+      >
+        Eliminar
+      </button>
+    </span>
   </div>
 </div>

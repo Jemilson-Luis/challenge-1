@@ -12,9 +12,9 @@ import { CommonModule } from '@angular/common';
 })
 
 export class CustomInputComponent {
-  @Input() detailInput:CustomInputTypes = { placeholder: '', type: '', value: '', error: ''}
-  @Output() sendValue:string = ''
+  @Input() detailInput: CustomInputTypes = { placeholder: '', type: '', value: '', error: '' }
+  @Output() sendValue: string = ''
 
   inputError = 'error'
-  value:string = ''
+  value: string = ''
 }

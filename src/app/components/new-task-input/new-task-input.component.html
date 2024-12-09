@@ -1,0 +1,12 @@
+<img src="more.png" class="w-3 h-3" />
+
+<form #cadastro="ngForm" (submit)="registerTask()" class="w-full">
+  <input 
+    #task 
+    autofocus 
+    name="title" 
+    [(ngModel)]="taskTitle" 
+    placeholder="Nova tarefa..."
+    class="text-sm placeholder:text-[#ffffff50] " 
+  />
+</form>

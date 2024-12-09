@@ -1,4 +1,4 @@
-type DatabaseUsertypes = {
+type UserTypes = {
   id: string,
   name:string,
   email:string,
@@ -6,4 +6,4 @@ type DatabaseUsertypes = {
 
 }
 
-export default DatabaseUsertypes
+export default UserTypes

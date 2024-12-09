@@ -1,0 +1,22 @@
+:host{
+  display: flex;
+  align-items: center;
+  background-color: #202020;
+  border-radius: 2px;
+  color: #f4f4f4;
+
+  overflow: hidden;
+  transition: all .3s;
+  padding: 10px 16px;
+  position: relative;
+
+  transition: all 4s;
+}
+
+input{
+  background: transparent;
+  width: 100%;
+  outline: none;
+  outline: none;
+  margin-left: 16px;
+}

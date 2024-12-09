@@ -1,0 +1,35 @@
+<div class="col bg-[#202020] w-[250px] h-full absolute left-0">
+  <button *ngFor="let user of users"
+    class="flex w-full py-2 px-1 rounded-sm items-center gap-2 outline-none transition-all hover:bg-[#242424] active:bg-[#202020] "
+    (click)="selectUser(user)">
+    <div class="w-10 h-10 bg-blue-900 rounded-full text-sm flex justify-center items-center text-gray-300">
+      {{ splitedName(user.name) }}
+    </div>
+    <p class=" text-gray-200 text-sm">{{ user.name }}</p>
+  </button>
+</div>
+
+
+<div class="w-[300px] h-[350px] rounded-[4px] font-sans bg-[#202020] p-8">
+  <p class="text-gray-400 text-center font-semibold text-xl">Welcome</p>
+
+  <form #login ngForm="#login" class="overflow-hidden mt-6">
+    <label class="text-gray-300 block">
+      Email
+      <input type="email" [(ngModel)]="email" name="email" autofocus app-input-login />
+    </label>
+
+
+    <label class="text-gray-300 mt-4 block">
+      Password
+      <input type="password" [(ngModel)]="password" name="password" app-input-login class="" />
+    </label>
+
+    <p class="text-red-400 text-sm mt-2"> {{ errors() }} </p>
+    <button
+      class="py-2 w-full mt-4 text-gray-300 rounded-sm bg-[#364638] hover:bg-[#394e3c] active:bg-[#111612] transition-all"
+      (click)="authenticate()">
+      Login
+    </button>
+  </form>
+</div>

@@ -1,7 +1,12 @@
-<header class="p-2">
-  <button class="h-12 w-12 rounded-md hover:bg-red-100 transition-all flex justify-center items-center"
-    (click)="loggOut()"
-  >
-    <img class="size-6 " src="loggOut.png" />
-  </button>
-</header>
+<button class="w-10 h-10 bg-zinc-700 rounded-full text-gray-100 mr-3">
+  {{ nameSplited }}
+</button>
+
+<span class="text-center">
+  <p class="text-zinc-100 text-sm"> {{ activeUser.name }} </p>
+  <p class="text-zinc-400 text-[12px]"> {{ activeUser.email }} </p>
+</span>
+
+<button class="w-10 h-10 hover:bg-zinc-900 flex justify-center items-center rounded-md active:bg-black transition-all" (click)="logOut()">
+  <img src="logout.png" alt="" class="w-6 h-6">
+</button>

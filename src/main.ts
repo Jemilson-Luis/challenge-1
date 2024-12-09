@@ -1,15 +1,15 @@
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { bootstrapApplication } from '@angular/platform-browser';
+
 import { appConfig } from './app/app.config';
 import { AppComponent } from './app/app.component';
-import { provideHttpClient, withInterceptors } from '@angular/common/http';
-import logginInterceptor from './app/interceptors/request.interceptors';
-import { LogginGuard } from './app/guards/loggin.guard';
+import { errorsInterceptor } from './app/_interceptors/errors.interceptor';
+import { requestsInterceptor } from './app/_interceptors/requests.interceptor';
 
 bootstrapApplication(AppComponent, { providers: [
-  LogginGuard,
   appConfig.providers,
   provideHttpClient(
-    withInterceptors([logginInterceptor])
+    withInterceptors([errorsInterceptor, requestsInterceptor])
   )
 ] })
 

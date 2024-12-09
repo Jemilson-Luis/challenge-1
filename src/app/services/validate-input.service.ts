@@ -10,7 +10,7 @@ export class ValidateInputService {
     message: 'Email inválido'
   }
 
-  validateInput({ value, type }:{value:string, type:string}){
+  validateInput(value:string, type:string){
     if(type === 'email'){
       const result = this.email.regex.test(value)
       return result

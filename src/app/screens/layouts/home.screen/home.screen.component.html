@@ -1,0 +1,35 @@
+<main class="flex justify-between flex-col h-full items-center sm:w-[90vw] md:w-[72vw] lg:w-[45vw]  m-auto">
+  <div class=" mt-2 w-full">
+    <div class="w-full" id="containerTasks" #containerTasks>
+      <app-task-item *ngFor="let task of listTasks" [tasks]="task" [showHiddesTask]="showTasksChecked()" />
+    </div>
+    <app-new-task-input 
+      icon="more.png" 
+      (title)="addNewTask($event)" 
+      placeholder="Nova tarefa..." class="mt-5" 
+    />
+
+  </div>
+  
+  <div class="w-full bg-[#202020] flex rounded-sm px-4 py-3 ">
+    <div class="flex-1 flex items-center">
+      <img class="w-3 h-3 rounded-sm border-none" src="more.png" />
+      <input 
+        (input)="searchTask()" 
+        [(ngModel)]="searchValue"
+        placeholder="Encontrar tarafas..."  
+        class="text-sm placeholder:text-[#ffffff50] " 
+      />
+
+    </div>
+
+
+    <button 
+      class="text-sm h-full border-l border-[#404040] px-6 text-gray-400 rounded-sm gap-4 hover:bg-[#404040] active:bg-[#202020] transition-all placeholder:text-gray-500"
+      (click)="showCheckedTask()"
+    >
+      Terminadas
+    </button>
+
+  </div>
+</main>

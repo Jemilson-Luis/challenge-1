@@ -2,39 +2,137 @@
   "users": [
     {
       "id": "1",
-      "name": "Nome user",
-      "email": "email@gmail.com",
+      "name": "Abel Domingos",
+      "email": "abeldomingos@gmail.com",
+      "password": "12345"
+    },
+    {
+      "id": "2",
+      "name": "Jemilson Luis",
+      "email": "jemilson@gmail.com",
+      "password": "12345"
+    },
+    {
+      "id": "3",
+      "name": "Filipe Domingos",
+      "email": "filipedomingos@gmail.com",
+      "password": "12345"
+    },
+    {
+      "id": "4",
+      "name": "Augusto Miguel",
+      "email": "augustomiguel@gmail.com",
       "password": "12345"
     }
   ],
   "tasks": [
     {
-      "id": "f9ce",
-      "title": "Água",
-      "desc": "Nisi tempor commodo do consectetur officia tempor. Ut cupidatat officia exercitation cillum occaecat. Consectetur ex nostrud eiusmod mollit nostrud officia mollit.",
-      "date": "25/10/2024",
-      "userEmail": "email@gmail.com"
+      "id": "891f",
+      "title": "Adicionada por João Domingos",
+      "desc": "Alguma coisa pra fazer depois com essa tarefa",
+      "date": "2024-11-4",
+      "priority": "1",
+      "userEmail": "abeldomingos@gmail.com",
+      "checked": false
     },
     {
-      "userEmail": "email@gmail.com",
-      "title": "Bug",
-      "desc": "Nisi tempor commodo do consectetur officia tempor. Ut cupidatat officia exercitation cillum occaecat. Consectetur ex nostrud eiusmod mollit nostrud officia mollit.",
-      "date": "25/10/2024",
-      "id": "0339"
+      "id": "9509",
+      "title": "Jogar Tomb Raider",
+      "desc": "",
+      "date": "2024-11-3",
+      "priority": "0",
+      "userEmail": "jemilson@gmail.com",
+      "checked": false
     },
     {
-      "id": "9a5e",
-      "title": "Codar",
-      "desc": "Nisi tempor commodo do consectetur officia tempor. Ut cupidatat officia exercitation cillum occaecat. Consectetur ex nostrud eiusmod mollit nostrud officia mollit.",
-      "date": "25/10/2024",
-      "userEmail": "email@gmail.com"
+      "id": "d710",
+      "title": "Jogar Call of duty",
+      "desc": "",
+      "date": "",
+      "priority": "",
+      "userEmail": "jemilson@gmail.com",
+      "checked": false
     },
     {
-      "id": "934d",
-      "title": "Ler",
-      "desc": "Nisi tempor commodo do consectetur officia tempor. Ut cupidatat officia exercitation cillum occaecat. Consectetur ex nostrud eiusmod mollit nostrud officia mollit.",
-      "date": "25/10/2024",
-      "userEmail": "email@gmail.com"
+      "id": "136e",
+      "title": "Jogar Ori",
+      "desc": "",
+      "date": "",
+      "priority": "",
+      "userEmail": "jemilson@gmail.com",
+      "checked": false
+    },
+    {
+      "id": "7096",
+      "title": "Silicon valey",
+      "desc": "",
+      "date": "",
+      "priority": "1",
+      "userEmail": "filipedomingos@gmail.com",
+      "checked": false
+    },
+    {
+      "id": "4dfd",
+      "title": "Game of trons",
+      "desc": "",
+      "date": "",
+      "priority": "0",
+      "userEmail": "filipedomingos@gmail.com",
+      "checked": true
+    },
+    {
+      "id": "3c41",
+      "title": "The walking dead",
+      "desc": "Serie caminhando para a morte",
+      "date": "2024-11-04",
+      "priority": "0",
+      "userEmail": "filipedomingos@gmail.com",
+      "checked": false
+    },
+    {
+      "id": "b0e9",
+      "title": "Naruto",
+      "desc": "",
+      "date": "",
+      "priority": "",
+      "userEmail": "augustomiguel@gmail.com",
+      "checked": true
+    },
+    {
+      "id": "16f1",
+      "title": "Black Clover",
+      "desc": "",
+      "date": "",
+      "priority": "",
+      "userEmail": "augustomiguel@gmail.com",
+      "checked": false
+    },
+    {
+      "id": "3c81",
+      "title": "Kimetsu no yaiba",
+      "desc": "",
+      "date": "",
+      "priority": "",
+      "userEmail": "augustomiguel@gmail.com",
+      "checked": false
+    },
+    {
+      "id": "0e0c",
+      "title": "Jujutsu no kaisen",
+      "desc": "",
+      "date": "",
+      "priority": "",
+      "userEmail": "augustomiguel@gmail.com",
+      "checked": false
+    },
+    {
+      "id": "52e6",
+      "title": "Jogar",
+      "desc": "",
+      "date": "",
+      "priority": "",
+      "userEmail": "jemilson@gmail.com",
+      "checked": false
     }
   ]
 }
